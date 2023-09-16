@@ -1,0 +1,27 @@
+[
+  {
+    "resourceName": "SALES",
+    "roleName": "MARKETING",
+    "actionName": "DELETE"
+  },
+  {
+    "resourceName": "CUSTOMER",
+    "roleName": "SUPPORT",
+    "actionName": "UPDATE"
+  },
+  {
+    "resourceName": "PRODUCT",
+    "roleName": "MANAGER",
+    "actionName": "VIEW"
+  },
+  {
+    "resourceName": "INVENTORY",
+    "roleName": "WAREHOUSE",
+    "actionName": "MANAGE"
+  },
+  {
+    "resourceName": "REPORT",
+    "roleName": "ANALYST",
+    "actionName": "GENERATE"
+  }
+]
