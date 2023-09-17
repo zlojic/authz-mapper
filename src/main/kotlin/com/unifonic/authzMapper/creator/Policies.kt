@@ -5,10 +5,11 @@ import com.unifonic.authzMapper.model.output.RolePolicy
 import com.unifonic.authzMapper.model.output.ScopePolicy
 
 
-fun createPolicies(legacyPermissions: Set<LegacyJson>): Set<Collection<Any>> {
-    return setOf(
-        createRolePolicies(legacyPermissions), createScopePolicies(legacyPermissions)
-    )
+fun createPolicies(legacyPermissions: Set<LegacyJson>): Collection<Any> {
+    val rolePolicies = createRolePolicies(legacyPermissions)
+    val scopePolicies = createScopePolicies(legacyPermissions)
+
+    return rolePolicies.plus(scopePolicies)
 }
 
 private fun createRolePolicies(legacyPermissions: Set<LegacyJson>): Collection<RolePolicy> {

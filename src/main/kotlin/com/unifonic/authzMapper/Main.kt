@@ -14,14 +14,13 @@ import java.io.FileOutputStream
 
 
 fun main(args: Array<String>) {
-    if (args.size != 1) return println("ERROR: Expecting input file name as command-line argument")
-
-    val inputJson = FileInputStream(args[0])
+    if (args.isEmpty()) return println("ERROR: Expecting input file name as command-line argument")
 
     val jackson = ObjectMapper()
     jackson.setSerializationInclusion(NON_NULL)
     jackson.enable(SerializationFeature.INDENT_OUTPUT)
 
+    val inputJson = FileInputStream(args[0])
     val typeRef = object : TypeReference<Set<LegacyJson>>() {}
     val legacyPermissions: Set<LegacyJson> = jackson.readValue(inputJson, typeRef)
 
