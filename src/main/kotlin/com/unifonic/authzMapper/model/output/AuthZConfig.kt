@@ -1,4 +1,4 @@
-package com.unifonic.authzMapper.model
+package com.unifonic.authzMapper.model.output
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
