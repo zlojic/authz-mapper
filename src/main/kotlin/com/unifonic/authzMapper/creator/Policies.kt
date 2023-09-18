@@ -29,13 +29,16 @@ private fun createScopePolicies(legacyPermissions: Set<LegacyJson>): Collection<
 
     for (permission in legacyPermissions) {
         val policyName = "${permission.resource} - ${permission.scope}"
-        val policy = policyCache[policyName]?.run { appendApplyPolicy(this, permission.role) } ?: run { initApplyPolicy(permission.role) }
+        val policy = when (val it = policyCache[policyName]) {
+            null -> initApplyPolicy(permission.role)
+            else -> appendApplyPolicy(it, permission.role)
+        }
+
         policyCache[policyName] = policy
     }
 
     return policyCache.map {
         val (resource, scope) = it.key.split(" - ")
-
         val config = ScopePolicy.Config(
             genResources(resource), genScopes(scope), genApplyPolicies(it.value)
         )

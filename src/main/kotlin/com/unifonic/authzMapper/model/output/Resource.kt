@@ -16,7 +16,6 @@ import java.util.*
 )
 class Resource(
     @JsonProperty("name") val name: String,
-
     @JsonProperty("scopes") val scopes: SortedSet<Scope>,
 ) {
     @JsonProperty("_id")

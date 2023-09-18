@@ -9,7 +9,10 @@ fun createResources(legacyPermissions: Set<LegacyJson>): Collection<Resource> {
 
     for (permission in legacyPermissions) {
         val scope = Resource.Scope(permission.scope)
-        val resource = resourceCache[permission.resource] ?: Resource(permission.resource, sortedSetOf())
+        val resource = resourceCache[permission.resource] ?: Resource(
+            permission.resource, sortedSetOf()
+        )
+
         resource.scopes.add(scope)
         resourceCache[permission.resource] = resource
     }
